@@ -49,6 +49,12 @@ public class BookService {
 	
 	
 	
+	public void addBook(Book b) {
+		list.add(b);
+		
+	}
+	
+	
 	
 
 }
