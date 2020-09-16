@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.book.entities.Book;
 import com.api.book.services.BookService;
-import com.sun.jndi.url.rmi.rmiURLContext;
+//import com.sun.jndi.url.rmi.rmiURLContext;
 
 @RestController
 public class BookController {
@@ -43,7 +43,7 @@ public class BookController {
 			
 		}
 		
-		return ResponseEntity.of(Optional.of(list));
+		return ResponseEntity.status(HttpStatus.CREATED).body(list);
 		
 		
 	
@@ -55,7 +55,7 @@ public class BookController {
 	@GetMapping("/books/{id}")
 	public ResponseEntity<Book> getBook(@PathVariable("id") int id)
 	{
-		
+		 
 		Book book=bookService.getBookById(id);
 		if(book==null) {
 			
