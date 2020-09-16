@@ -38,9 +38,12 @@ public class BookService {
 	
 	public static Book getBookById(int id) {
 		Book book=null;
-		
+		try {
 		book=list.stream().filter(e->e.getId()==id).findFirst().get();
-		
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		return book;
 	}
 
@@ -51,8 +54,9 @@ public class BookService {
 	
 	
 	
-	public void addBook(Book b) {
+	public Book addBook(Book b) {
 		list.add(b);
+		return b;
 		
 	}
 	
